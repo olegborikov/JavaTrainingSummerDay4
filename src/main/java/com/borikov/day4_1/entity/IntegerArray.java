@@ -1,9 +1,10 @@
 package com.borikov.day4_1.entity;
 
 import com.borikov.day4_1.exception.IncorrectDataException;
+import com.borikov.day4_1.validator.ArrayValidator;
 
 public class IntegerArray {
-    private final int[] numbers;
+    private int[] numbers;
 
     public IntegerArray(int[] numbers) throws IncorrectDataException {
         if (numbers == null || numbers.length < 1) {
@@ -13,14 +14,16 @@ public class IntegerArray {
     }
 
     public int get(int index) throws IncorrectDataException {
-        if (!(index >= 0 && index < numbers.length)) {
+        ArrayValidator arrayValidator = new ArrayValidator();
+        if (!(arrayValidator.isIndexCorrect(index, numbers.length))) {
             throw new IncorrectDataException();
         }
         return numbers[index];
     }
 
     public void set(int index, int value) throws IncorrectDataException {
-        if (!(index >= 0 && index < numbers.length)) {
+        ArrayValidator arrayValidator = new ArrayValidator();
+        if (!(arrayValidator.isIndexCorrect(index, numbers.length))) {
             throw new IncorrectDataException();
         }
         numbers[index] = value;
@@ -61,7 +64,11 @@ public class IntegerArray {
             return false;
         }
         IntegerArray integerArray = (IntegerArray) o;
-        return equalsToArray(integerArray.numbers);
+        if (equalsToArray(integerArray.numbers)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
