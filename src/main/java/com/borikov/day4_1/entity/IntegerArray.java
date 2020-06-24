@@ -1,26 +1,76 @@
 package com.borikov.day4_1.entity;
 
+import com.borikov.day4_1.exception.IncorrectDataException;
+
 public class IntegerArray {
-    private int[] integerArray;
+    private final int[] numbers;
 
-    public IntegerArray(int[] integerArray) {
-        this.integerArray = integerArray;
+    public IntegerArray(int[] numbers) throws IncorrectDataException {
+        if (numbers == null || numbers.length < 1) {
+            throw new IncorrectDataException();
+        }
+        this.numbers = numbers;
     }
 
-    IntegerArray(int length) {
-
+    public int get(int index) throws IncorrectDataException {
+        if (!(index >= 0 && index < numbers.length)) {
+            throw new IncorrectDataException();
+        }
+        return numbers[index];
     }
 
-    public int get(int index) {
-        return integerArray[index];
-    }
-
-    public void set(int index, int value) {
-        integerArray[index] = value;
+    public void set(int index, int value) throws IncorrectDataException {
+        if (!(index >= 0 && index < numbers.length)) {
+            throw new IncorrectDataException();
+        }
+        numbers[index] = value;
     }
 
     public int size() {
-        return integerArray.length;
+        return numbers.length;
+    }
+
+    public boolean equalsToArray(int[] compareNumbers) {
+        if (numbers == null) {
+            if (compareNumbers != null) {
+                return false;
+            }
+        } else {
+            if (compareNumbers == null) {
+                return false;
+            }
+            if (numbers.length != compareNumbers.length) {
+                return false;
+            } else {
+                for (int i = 0; i < numbers.length; i++) {
+                    if (numbers[i] != compareNumbers[i]) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        IntegerArray integerArray = (IntegerArray) o;
+        return equalsToArray(integerArray.numbers);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 1;
+        for (int i = 0; i < numbers.length; i++) {
+            result = 31 * numbers[i] + result;
+        }
+        return result;
     }
 
     @Override
@@ -28,14 +78,14 @@ public class IntegerArray {
         final StringBuilder sb = new StringBuilder("IntegerArray{");
         sb.append("integerArray=");
         sb.append('[');
-        for (int i = 0; i < integerArray.length; i++) {
-            sb.append(integerArray[i]);
-            if (integerArray.length - 1 != i) {
+        for (int i = 0; i < numbers.length; i++) {
+            sb.append(numbers[i]);
+            if (numbers.length - 1 != i) {
                 sb.append(", ");
             }
         }
         sb.append(']');
-        sb.append("}");
+        sb.append('}');
         return sb.toString();
     }
 }
