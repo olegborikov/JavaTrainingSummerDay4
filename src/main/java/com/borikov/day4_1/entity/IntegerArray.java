@@ -64,11 +64,7 @@ public class IntegerArray {
             return false;
         }
         IntegerArray integerArray = (IntegerArray) o;
-        if (equalsToArray(integerArray.numbers)) {
-            return true;
-        } else {
-            return false;
-        }
+        return equalsToArray(integerArray.numbers);
     }
 
     @Override
