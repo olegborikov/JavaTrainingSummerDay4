@@ -4,7 +4,7 @@ import com.borikov.day4_1.exception.IncorrectDataException;
 import com.borikov.day4_1.validator.ArrayValidator;
 
 public class IntegerArray {
-    private int[] numbers;
+    private final int[] numbers;
 
     public IntegerArray(int[] numbers) throws IncorrectDataException {
         if (numbers == null || numbers.length < 1) {

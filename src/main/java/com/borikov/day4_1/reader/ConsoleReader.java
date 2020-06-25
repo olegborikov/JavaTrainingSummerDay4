@@ -3,6 +3,7 @@ package com.borikov.day4_1.reader;
 import com.borikov.day4_1.console.ArrayPrint;
 import com.borikov.day4_1.exception.IncorrectDataException;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ConsoleReader {
@@ -21,7 +22,11 @@ public class ConsoleReader {
         Scanner scanner = new Scanner(System.in);
         ArrayPrint arrayPrint = new ArrayPrint();
         arrayPrint.printEnterElement(index);
-        int element = scanner.nextInt();
-        return element;
+        try {
+            int element = scanner.nextInt();
+            return element;
+        } catch (InputMismatchException e) {
+            throw new IncorrectDataException();
+        }
     }
 }

@@ -2,9 +2,16 @@ package com.borikov.day4_1.service;
 
 import com.borikov.day4_1.entity.IntegerArray;
 import com.borikov.day4_1.exception.IncorrectDataException;
+import com.borikov.day4_1.validator.ArrayValidator;
 
 public class ArraySearchService {
-    public int binarySearch(IntegerArray integerArray, int number) throws IncorrectDataException {
+    public int binarySearch(IntegerArray integerArray,
+                            int number) throws IncorrectDataException {
+        if (integerArray == null) {
+            throw new IncorrectDataException();
+        }
+        ArraySortService arraySortService = new ArraySortService();
+        arraySortService.bubbleSort(integerArray, false);
         int position = -1;
         int firstIndex = 0;
         int lastIndex = integerArray.size() - 1;

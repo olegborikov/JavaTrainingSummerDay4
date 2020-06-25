@@ -12,7 +12,8 @@ public class ArrayCreator {
     private static final int MAX_RANDOM = 1000;
     private static final int MIN_RANDOM = -1000;
 
-    public IntegerArray createAndFillArrayRandom(int size) throws IncorrectDataException {
+    public IntegerArray createAndFillArrayRandom(int size)
+            throws IncorrectDataException {
         if (size < 1) {
             throw new IncorrectDataException();
         }
@@ -24,7 +25,8 @@ public class ArrayCreator {
         return new IntegerArray(numbers);
     }
 
-    public IntegerArray createAndFillArrayConsole() throws IncorrectDataException {
+    public IntegerArray createAndFillArrayConsole()
+            throws IncorrectDataException {
         ConsoleReader consoleReader = new ConsoleReader();
         int[] numbers = consoleReader.readArraySize();
         for (int i = 0; i < numbers.length; i++) {
@@ -33,7 +35,8 @@ public class ArrayCreator {
         return new IntegerArray(numbers);
     }
 
-    public IntegerArray createAndFillArrayFile(String file) throws IncorrectDataException {
+    public IntegerArray createAndFillArrayFile(String file)
+            throws IncorrectDataException {
         FileReader fileReader = new FileReader();
         ArrayParser arrayParser = new ArrayParser();
         String data = fileReader.readArray(file);

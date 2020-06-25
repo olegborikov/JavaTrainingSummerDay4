@@ -3,13 +3,12 @@ package com.borikov.day4_1.service;
 import com.borikov.day4_1.entity.IntegerArray;
 import com.borikov.day4_1.exception.IncorrectDataException;
 
-import java.util.Arrays;
-
 public class ArrayArithmeticService {
     public final static int MIN_THREE_DIGIT_NUMBER = 100;
     public final static int MAX_THREE_DIGIT_NUMBER = 999;
 
-    public int getMaxValue(IntegerArray integerArray) throws IncorrectDataException {
+    public int getMaxValue(IntegerArray integerArray)
+            throws IncorrectDataException {
         if (integerArray == null || integerArray.size() < 1) {
             throw new IncorrectDataException();
         }
@@ -22,20 +21,22 @@ public class ArrayArithmeticService {
         return maxValue;
     }
 
-    public int getMinValue(IntegerArray integerArray) throws IncorrectDataException {
+    public int getMinValue(IntegerArray integerArray)
+            throws IncorrectDataException {
         if (integerArray == null || integerArray.size() < 1) {
             throw new IncorrectDataException();
         }
-        int maxValue = integerArray.get(0);
+        int minValue = integerArray.get(0);
         for (int i = 0; i < integerArray.size(); i++) {
-            if (maxValue > integerArray.get(i)) {
-                maxValue = integerArray.get(i);
+            if (minValue > integerArray.get(i)) {
+                minValue = integerArray.get(i);
             }
         }
-        return maxValue;
+        return minValue;
     }
 
-    public int[] getPrimeNumbers(IntegerArray integerArray) throws IncorrectDataException {
+    public int[] getPrimeNumbers(IntegerArray integerArray)
+            throws IncorrectDataException {
         if (integerArray == null) {
             throw new IncorrectDataException();
         }
@@ -70,7 +71,8 @@ public class ArrayArithmeticService {
         return result;
     }
 
-    public int[] getFibonacciNumbers(IntegerArray integerArray) throws IncorrectDataException {
+    public int[] getFibonacciNumbers(IntegerArray integerArray)
+            throws IncorrectDataException {
         if (integerArray == null) {
             throw new IncorrectDataException();
         }
@@ -110,20 +112,23 @@ public class ArrayArithmeticService {
         return result;
     }
 
-    public int[] getThreeDigitUniqueNumbers(IntegerArray integerArray) throws IncorrectDataException {
+    public int[] getThreeDigitUniqueNumbers(IntegerArray integerArray)
+            throws IncorrectDataException {
         if (integerArray == null) {
             throw new IncorrectDataException();
         }
         int size = 0;
         for (int i = 0; i < integerArray.size(); i++) {
-            if (isNumberThreeDigit(integerArray.get(i)) && isNumberUnique(integerArray.get(i))) {
+            if (isNumberThreeDigit(integerArray.get(i))
+                    && isNumberUnique(integerArray.get(i))) {
                 size++;
             }
         }
         int[] threeDigitUniqueNumbers = new int[size];
         int currentIndex = 0;
         for (int i = 0; i < integerArray.size(); i++) {
-            if (isNumberThreeDigit(integerArray.get(i)) && isNumberUnique(integerArray.get(i))) {
+            if (isNumberThreeDigit(integerArray.get(i))
+                    && isNumberUnique(integerArray.get(i))) {
                 threeDigitUniqueNumbers[currentIndex] = integerArray.get(i);
                 currentIndex++;
             }
@@ -142,6 +147,7 @@ public class ArrayArithmeticService {
 
     private boolean isNumberUnique(int number) {
         boolean result = true;
+        number = Math.abs(number);
         int[] numberArray = breakUpNumberToArray(number);
         for (int i = 0; i < numberArray.length - 1; i++) {
             for (int j = i + 1; j < numberArray.length; j++) {

@@ -2,9 +2,11 @@ package com.borikov.day4_1.service;
 
 import com.borikov.day4_1.entity.IntegerArray;
 import com.borikov.day4_1.exception.IncorrectDataException;
+import com.borikov.day4_1.validator.ArrayValidator;
 
 public class ArraySortService {
-    public void bubbleSort(IntegerArray integerArray, boolean isReverse) throws IncorrectDataException {
+    public void bubbleSort(IntegerArray integerArray,
+                           boolean isReverse) throws IncorrectDataException {
         if (integerArray == null) {
             throw new IncorrectDataException();
         }
@@ -25,7 +27,8 @@ public class ArraySortService {
         }
     }
 
-    public void selectionSort(IntegerArray integerArray, boolean isReverse) throws IncorrectDataException {
+    public void selectionSort(IntegerArray integerArray,
+                              boolean isReverse) throws IncorrectDataException {
         if (integerArray == null) {
             throw new IncorrectDataException();
         }
@@ -43,7 +46,8 @@ public class ArraySortService {
         }
     }
 
-    public void insertionSort(IntegerArray integerArray, boolean isReverse) throws IncorrectDataException {
+    public void insertionSort(IntegerArray integerArray,
+                              boolean isReverse) throws IncorrectDataException {
         if (integerArray == null) {
             throw new IncorrectDataException();
         }
@@ -61,7 +65,14 @@ public class ArraySortService {
         }
     }
 
-    private void swap(IntegerArray integerArray, int firstIndex, int secondIndex) throws IncorrectDataException {
+    private void swap(IntegerArray integerArray, int firstIndex,
+                      int secondIndex) throws IncorrectDataException {
+        ArrayValidator arrayValidator = new ArrayValidator();
+        if (integerArray == null
+                || !(arrayValidator.isIndexCorrect(firstIndex, integerArray.size()))
+                || !(arrayValidator.isIndexCorrect(secondIndex, integerArray.size()))) {
+            throw new IncorrectDataException();
+        }
         int firstNumber = integerArray.get(firstIndex);
         int secondNumber = integerArray.get(secondIndex);
         integerArray.set(firstIndex, secondNumber);
@@ -69,6 +80,9 @@ public class ArraySortService {
     }
 
     private void reverse(IntegerArray integerArray) throws IncorrectDataException {
+        if (integerArray == null) {
+            throw new IncorrectDataException();
+        }
         for (int i = 0; i < integerArray.size() / 2; i++) {
             swap(integerArray, i, (integerArray.size() - 1) - i);
         }

@@ -9,6 +9,7 @@ import java.nio.file.Paths;
 
 public class FileReader {
     private static final String DEFAULT_PATH = "src\\main\\resources\\data\\data.txt";
+    // TODO: 25.06.2020 dont find data/data.txt
 
     public String readArray(String file) throws IncorrectDataException {
         Path path = Paths.get(DEFAULT_PATH);
