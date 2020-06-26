@@ -1,4 +1,4 @@
-package com.borikov.day4_2.enumtype;
+package com.borikov.day4_2.type;
 
 import com.borikov.day4_2.exception.InvalidDataException;
 

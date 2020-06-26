@@ -2,7 +2,6 @@ package com.borikov.day4_1.service;
 
 import com.borikov.day4_1.entity.IntegerArray;
 import com.borikov.day4_1.exception.IncorrectDataException;
-import com.borikov.day4_1.validator.ArrayValidator;
 
 public class ArraySearchService {
     public int binarySearch(IntegerArray integerArray,

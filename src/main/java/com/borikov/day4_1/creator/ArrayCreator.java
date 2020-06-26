@@ -4,7 +4,7 @@ import com.borikov.day4_1.entity.IntegerArray;
 import com.borikov.day4_1.exception.IncorrectDataException;
 import com.borikov.day4_1.parser.ArrayParser;
 import com.borikov.day4_1.reader.ConsoleReader;
-import com.borikov.day4_1.reader.FileReader;
+import com.borikov.day4_1.reader.CustomFileReader;
 
 import java.util.Random;
 
@@ -37,9 +37,9 @@ public class ArrayCreator {
 
     public IntegerArray createAndFillArrayFile(String file)
             throws IncorrectDataException {
-        FileReader fileReader = new FileReader();
+        CustomFileReader customFileReader = new CustomFileReader();
         ArrayParser arrayParser = new ArrayParser();
-        String data = fileReader.readArray(file);
+        String data = customFileReader.readArray(file);
         int[] numbers = arrayParser.parseLineToArray(data);
         return new IntegerArray(numbers);
     }

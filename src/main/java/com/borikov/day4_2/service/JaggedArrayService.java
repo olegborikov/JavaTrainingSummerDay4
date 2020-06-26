@@ -1,6 +1,6 @@
 package com.borikov.day4_2.service;
 
-import com.borikov.day4_2.enumtype.SortType;
+import com.borikov.day4_2.type.SortType;
 import com.borikov.day4_2.exception.InvalidDataException;
 import com.borikov.day4_2.validator.JaggedArrayValidator;
 
