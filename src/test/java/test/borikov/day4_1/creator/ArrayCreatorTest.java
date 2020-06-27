@@ -71,9 +71,9 @@ public class ArrayCreatorTest {
     @DataProvider(name = "createAndFillArrayFilePositiveData")
     public Object[][] createCreateAndFillArrayFilePositiveData() throws IncorrectDataException {
         return new Object[][]{
-                {"data/validData.txt", new IntegerArray(new int[]{1, 2, 3, 10, 123, 45})},
+                {"input/validData.txt", new IntegerArray(new int[]{1, 2, 3, 10, 123, 45})},
                 {null, new IntegerArray(new int[]{3, 2, 1, 5, 4})},
-                {"data/qwerty.txt", new IntegerArray(new int[]{3, 2, 1, 5, 4})},
+                {"input/qwerty.txt", new IntegerArray(new int[]{3, 2, 1, 5, 4})},
         };
     }
 
@@ -90,9 +90,9 @@ public class ArrayCreatorTest {
     @DataProvider(name = "createAndFillArrayFileNegativeData")
     public Object[][] createCreateAndFillArrayFileNegativeData() throws IncorrectDataException {
         return new Object[][]{
-                {"data/validData.txt", new IntegerArray(new int[]{1, 2})},
+                {"input/validData.txt", new IntegerArray(new int[]{1, 2})},
                 {null, new IntegerArray(new int[]{3, 2, 1, 4})},
-                {"data/qwerty.txt", new IntegerArray(new int[]{3, 1, 5, 4})},
+                {"input/qwerty.txt", new IntegerArray(new int[]{3, 1, 5, 4})},
         };
     }
 
@@ -109,7 +109,7 @@ public class ArrayCreatorTest {
     @DataProvider(name = "createAndFillArrayFileExceptionData")
     public Object[][] createCreateAndFillArrayFileExceptionData() {
         return new Object[][]{
-                {"data/invalidData.txt"}
+                {"input/invalidData.txt"}
         };
     }
 

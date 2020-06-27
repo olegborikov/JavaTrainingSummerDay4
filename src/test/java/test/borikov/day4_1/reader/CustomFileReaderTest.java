@@ -25,9 +25,9 @@ public class CustomFileReaderTest {
     @DataProvider(name = "readArrayPositiveData")
     public Object[][] createReadArrayPositiveData() {
         return new Object[][]{
-                {"data/validData.txt", "1 2 3 10 123 45"},
+                {"input/validData.txt", "1 2 3 10 123 45"},
                 {null, "3 2 1 5 4"},
-                {"data/qwerty.txt", "3 2 1 5 4"},
+                {"input/qwerty.txt", "3 2 1 5 4"},
         };
     }
 
@@ -44,9 +44,9 @@ public class CustomFileReaderTest {
     @DataProvider(name = "readArrayNegativeData")
     public Object[][] createReadArrayNegativeData() {
         return new Object[][]{
-                {"data/validData.txt", "1 2 "},
+                {"input/validData.txt", "1 2 "},
                 {null, "3 2 1 4"},
-                {"data/qwerty.txt", "3 1 5 4"},
+                {"input/qwerty.txt", "3 1 5 4"},
         };
     }
 
@@ -63,7 +63,7 @@ public class CustomFileReaderTest {
     @DataProvider(name = "readArrayExceptionData")
     public Object[][] createReadArrayExceptionData() {
         return new Object[][]{
-                {"data/invalidData.txt"}
+                {"input/invalidData.txt"}
         };
     }
 

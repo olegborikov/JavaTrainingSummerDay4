@@ -8,7 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class CustomFileReader {
-    private static final String DEFAULT_PATH = "data/data.txt";
+    private static final String DEFAULT_PATH = "input/defaultData.txt";
 
     public String readArray(String file) throws IncorrectDataException {
         Path path = Paths.get(DEFAULT_PATH);
