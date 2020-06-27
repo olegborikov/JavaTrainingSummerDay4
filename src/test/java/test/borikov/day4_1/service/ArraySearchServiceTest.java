@@ -25,16 +25,18 @@ public class ArraySearchServiceTest {
     }
 
     @DataProvider(name = "binarySearchPositiveData")
-    public Object[][] createBinarySearchPositiveData() throws IncorrectDataException {
+    public Object[][] createBinarySearchPositiveData()
+            throws IncorrectDataException {
         return new Object[][]{
                 {new IntegerArray(new int[]{1, 2, 5, 4}), 4, 2},
                 {new IntegerArray(new int[]{1, 5, 10, 15}), 15, 3},
-                {new IntegerArray(new int[]{5,4,3,2}), 1, -1}
+                {new IntegerArray(new int[]{5, 4, 3, 2}), 1, -1}
         };
     }
 
     @Test(dataProvider = "binarySearchPositiveData")
-    public void binarySearchPositiveTest(IntegerArray integerArray, int number, int expected) {
+    public void binarySearchPositiveTest(IntegerArray integerArray,
+                                         int number, int expected) {
         try {
             int actual = arraySearchService.binarySearch(integerArray, number);
             assertEquals(actual, expected);
@@ -44,16 +46,18 @@ public class ArraySearchServiceTest {
     }
 
     @DataProvider(name = "binarySearchNegativeData")
-    public Object[][] createBinarySearchNegativeData() throws IncorrectDataException {
+    public Object[][] createBinarySearchNegativeData()
+            throws IncorrectDataException {
         return new Object[][]{
                 {new IntegerArray(new int[]{1, 2, 5, 4}), 4, 5},
                 {new IntegerArray(new int[]{1, 5, 10, 15}), 15, -2},
-                {new IntegerArray(new int[]{5,4,3,2}), 1, 0}
+                {new IntegerArray(new int[]{5, 4, 3, 2}), 1, 0}
         };
     }
 
     @Test(dataProvider = "binarySearchNegativeData")
-    public void binarySearchNegativeTest(IntegerArray integerArray, int number, int expected) {
+    public void binarySearchNegativeTest(IntegerArray integerArray,
+                                         int number, int expected) {
         try {
             int actual = arraySearchService.binarySearch(integerArray, number);
             assertNotEquals(actual, expected);

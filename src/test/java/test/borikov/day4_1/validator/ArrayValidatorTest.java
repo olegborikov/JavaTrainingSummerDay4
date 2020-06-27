@@ -10,6 +10,7 @@ import static org.testng.Assert.*;
 
 public class ArrayValidatorTest {
     ArrayValidator arrayValidator;
+
     @BeforeTest
     public void setUp() {
         arrayValidator = new ArrayValidator();

@@ -24,7 +24,7 @@ public class ArrayCreatorTest {
     }
 
     @DataProvider(name = "createAndFillArrayRandomPositiveData")
-    public Object[][] createCreateAndFillArrayRandomPositiveData() throws IncorrectDataException {
+    public Object[][] createCreateAndFillArrayRandomPositiveData() {
         return new Object[][]{
                 {10},
                 {5},
@@ -43,7 +43,7 @@ public class ArrayCreatorTest {
     }
 
     @DataProvider(name = "createAndFillArrayRandomExceptionData")
-    public Object[][] createCreateAndFillArrayRandomNegativeData() throws IncorrectDataException {
+    public Object[][] createCreateAndFillArrayRandomNegativeData() {
         return new Object[][]{
                 {0},
                 {-1},
@@ -53,7 +53,8 @@ public class ArrayCreatorTest {
 
     @Test(dataProvider = "createAndFillArrayRandomExceptionData",
             expectedExceptions = IncorrectDataException.class)
-    public void createAndFillArrayRandomExceptionTest(int size) throws IncorrectDataException {
+    public void createAndFillArrayRandomExceptionTest(int size)
+            throws IncorrectDataException {
         IntegerArray integerArray = arrayCreator.createAndFillArrayRandom(size);
     }
 
@@ -69,7 +70,8 @@ public class ArrayCreatorTest {
     }
 
     @DataProvider(name = "createAndFillArrayFilePositiveData")
-    public Object[][] createCreateAndFillArrayFilePositiveData() throws IncorrectDataException {
+    public Object[][] createCreateAndFillArrayFilePositiveData()
+            throws IncorrectDataException {
         return new Object[][]{
                 {"input/validData.txt", new IntegerArray(new int[]{1, 2, 3, 10, 123, 45})},
                 {null, new IntegerArray(new int[]{3, 2, 1, 5, 4})},
@@ -78,7 +80,8 @@ public class ArrayCreatorTest {
     }
 
     @Test(dataProvider = "createAndFillArrayFilePositiveData")
-    public void createAndFillArrayFilePositiveTest(String file, IntegerArray expected) {
+    public void createAndFillArrayFilePositiveTest(String file,
+                                                   IntegerArray expected) {
         try {
             IntegerArray actual = arrayCreator.createAndFillArrayFile(file);
             assertEquals(actual, expected);
@@ -88,7 +91,8 @@ public class ArrayCreatorTest {
     }
 
     @DataProvider(name = "createAndFillArrayFileNegativeData")
-    public Object[][] createCreateAndFillArrayFileNegativeData() throws IncorrectDataException {
+    public Object[][] createCreateAndFillArrayFileNegativeData()
+            throws IncorrectDataException {
         return new Object[][]{
                 {"input/validData.txt", new IntegerArray(new int[]{1, 2})},
                 {null, new IntegerArray(new int[]{3, 2, 1, 4})},
@@ -97,7 +101,8 @@ public class ArrayCreatorTest {
     }
 
     @Test(dataProvider = "createAndFillArrayFileNegativeData")
-    public void createAndFillArrayFileNegativeTest(String file, IntegerArray expected) {
+    public void createAndFillArrayFileNegativeTest(String file,
+                                                   IntegerArray expected) {
         try {
             IntegerArray actual = arrayCreator.createAndFillArrayFile(file);
             assertNotEquals(actual, expected);
@@ -115,7 +120,8 @@ public class ArrayCreatorTest {
 
     @Test(dataProvider = "createAndFillArrayFileExceptionData",
             expectedExceptions = IncorrectDataException.class)
-    public void createAndFillArrayFileExceptionTest(String file) throws IncorrectDataException {
+    public void createAndFillArrayFileExceptionTest(String file)
+            throws IncorrectDataException {
         arrayCreator.createAndFillArrayFile(file);
     }
 }

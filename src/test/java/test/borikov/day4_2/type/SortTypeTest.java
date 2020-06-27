@@ -70,6 +70,6 @@ public class SortTypeTest {
     @Test(dataProvider = "sortMethodExceptionData",
             expectedExceptions = InvalidDataException.class)
     public void sortMethodExceptionTest(SortType sortType, int[] numbers) throws InvalidDataException {
-        int actual = sortType.sortMethod(numbers);
+        sortType.sortMethod(numbers);
     }
 }

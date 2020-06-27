@@ -8,7 +8,7 @@ public class ArrayArithmeticService {
     public int maxValue(IntegerArray integerArray)
             throws IncorrectDataException {
         if (integerArray == null || integerArray.size() < 1) {
-            throw new IncorrectDataException();
+            throw new IncorrectDataException("incorrect array");
         }
         int maxValue = integerArray.get(0);
         for (int i = 0; i < integerArray.size(); i++) {
@@ -22,7 +22,7 @@ public class ArrayArithmeticService {
     public int minValue(IntegerArray integerArray)
             throws IncorrectDataException {
         if (integerArray == null || integerArray.size() < 1) {
-            throw new IncorrectDataException();
+            throw new IncorrectDataException("incorrect array");
         }
         int minValue = integerArray.get(0);
         for (int i = 0; i < integerArray.size(); i++) {

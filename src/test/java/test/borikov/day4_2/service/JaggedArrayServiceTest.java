@@ -82,7 +82,8 @@ public class JaggedArrayServiceTest {
     }
 
     @Test(dataProvider = "bubbleSortPositiveData")
-    public void bubbleSortPositiveTest(int[][] actual, SortType sortType, boolean isReverse, int[][] expected) {
+    public void bubbleSortPositiveTest(int[][] actual, SortType sortType,
+                                       boolean isReverse, int[][] expected) {
         try {
             jaggedArrayService.bubbleSort(actual, sortType, isReverse);
             boolean result = equalsTwoDimensionalArray(actual, expected);
@@ -120,7 +121,8 @@ public class JaggedArrayServiceTest {
     }
 
     @Test(dataProvider = "bubbleSortNegativeData")
-    public void bubbleSortNegativeTest(int[][] actual, SortType sortType, boolean isReverse, int[][] expected) {
+    public void bubbleSortNegativeTest(int[][] actual, SortType sortType,
+                                       boolean isReverse, int[][] expected) {
         try {
             jaggedArrayService.bubbleSort(actual, sortType, isReverse);
             boolean result = equalsTwoDimensionalArray(actual, expected);
@@ -149,7 +151,8 @@ public class JaggedArrayServiceTest {
 
     @Test(dataProvider = "bubbleSorExceptionData",
             expectedExceptions = InvalidDataException.class)
-    public void bubbleSortExceptionTest(int[][] actual, SortType sortType, boolean isReverse) throws InvalidDataException {
+    public void bubbleSortExceptionTest(int[][] actual, SortType sortType,
+                                        boolean isReverse) throws InvalidDataException {
         jaggedArrayService.bubbleSort(actual, sortType, isReverse);
     }
 

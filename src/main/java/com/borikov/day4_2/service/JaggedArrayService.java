@@ -5,8 +5,7 @@ import com.borikov.day4_2.exception.InvalidDataException;
 import com.borikov.day4_2.validator.JaggedArrayValidator;
 
 public class JaggedArrayService {
-    public void bubbleSort(int[][] numbers,
-                           SortType sortType,
+    public void bubbleSort(int[][] numbers, SortType sortType,
                            boolean isReverse) throws InvalidDataException {
         if (numbers == null || sortType == null) {
             throw new InvalidDataException();
@@ -29,15 +28,17 @@ public class JaggedArrayService {
         }
     }
 
-    private void swapLines(int[][] numbers,
-                           int firstIndex,
+    private void swapLines(int[][] numbers, int firstIndex,
                            int secondIndex) throws InvalidDataException {
         JaggedArrayValidator jaggedArrayValidator = new JaggedArrayValidator();
-        if (numbers == null
-                || !(jaggedArrayValidator.isIndexCorrect(firstIndex, numbers.length))
-                || !(jaggedArrayValidator.isIndexCorrect(secondIndex, numbers.length))) {
+        if (numbers == null) {
             throw new InvalidDataException();
         }
+        if (!(jaggedArrayValidator.isIndexCorrect(firstIndex, numbers.length))
+                || !(jaggedArrayValidator.isIndexCorrect(secondIndex, numbers.length))) {
+            throw new InvalidDataException("incorrect array index");
+        }
+
         int[] firstNumber = numbers[firstIndex];
         numbers[firstIndex] = numbers[secondIndex];
         numbers[secondIndex] = firstNumber;

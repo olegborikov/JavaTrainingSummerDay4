@@ -112,7 +112,8 @@ public class ArrayArithmeticServiceTest {
     }
 
     @DataProvider(name = "getPrimeNumbersPositiveData")
-    public Object[][] createGetPrimeNumbersPositiveData() throws IncorrectDataException {
+    public Object[][] createGetPrimeNumbersPositiveData()
+            throws IncorrectDataException {
         return new Object[][]{
                 {new IntegerArray(new int[]{1, 2, 5, 4}), new int[]{1, 2, 5}},
                 {new IntegerArray(new int[]{10, 15}), new int[]{}},
@@ -121,7 +122,8 @@ public class ArrayArithmeticServiceTest {
     }
 
     @Test(dataProvider = "getPrimeNumbersPositiveData")
-    public void getPrimeNumbersPositiveTest(IntegerArray integerArray, int[] expected) {
+    public void getPrimeNumbersPositiveTest(IntegerArray integerArray,
+                                            int[] expected) {
         try {
             int[] actual = arrayArithmeticService.getPrimeNumbers(integerArray);
             assertEquals(actual, expected);
@@ -131,7 +133,8 @@ public class ArrayArithmeticServiceTest {
     }
 
     @DataProvider(name = "getPrimeNumbersNegativeData")
-    public Object[][] createGetPrimeNumbersNegativeData() throws IncorrectDataException {
+    public Object[][] createGetPrimeNumbersNegativeData()
+            throws IncorrectDataException {
         return new Object[][]{
                 {new IntegerArray(new int[]{1, 2, 5, 4}), new int[]{}},
                 {new IntegerArray(new int[]{10, 15}), new int[]{1}},
@@ -140,7 +143,8 @@ public class ArrayArithmeticServiceTest {
     }
 
     @Test(dataProvider = "getPrimeNumbersNegativeData")
-    public void getPrimeNumbersNegativeTest(IntegerArray integerArray, int[] expected) {
+    public void getPrimeNumbersNegativeTest(IntegerArray integerArray,
+                                            int[] expected) {
         try {
             int[] actual = arrayArithmeticService.getPrimeNumbers(integerArray);
             assertNotEquals(actual, expected);
@@ -156,7 +160,8 @@ public class ArrayArithmeticServiceTest {
     }
 
     @DataProvider(name = "getFibonacciNumbersPositiveData")
-    public Object[][] createGetFibonacciNumbersPositiveData() throws IncorrectDataException {
+    public Object[][] createGetFibonacciNumbersPositiveData()
+            throws IncorrectDataException {
         return new Object[][]{
                 {new IntegerArray(new int[]{1, 2, 5, 4}), new int[]{1, 2, 5}},
                 {new IntegerArray(new int[]{10, 15}), new int[]{}},
@@ -165,7 +170,8 @@ public class ArrayArithmeticServiceTest {
     }
 
     @Test(dataProvider = "getFibonacciNumbersPositiveData")
-    public void getFibonacciNumbersPositiveTest(IntegerArray integerArray, int[] expected) {
+    public void getFibonacciNumbersPositiveTest(IntegerArray integerArray,
+                                                int[] expected) {
         try {
             int[] actual = arrayArithmeticService.getFibonacciNumbers(integerArray);
             assertEquals(actual, expected);
@@ -175,7 +181,8 @@ public class ArrayArithmeticServiceTest {
     }
 
     @DataProvider(name = "getFibonacciNumbersNegativeData")
-    public Object[][] createGetFibonacciNumbersNegativeData() throws IncorrectDataException {
+    public Object[][] createGetFibonacciNumbersNegativeData()
+            throws IncorrectDataException {
         return new Object[][]{
                 {new IntegerArray(new int[]{1, 2, 5, 4}), new int[]{1, 2}},
                 {new IntegerArray(new int[]{10, 15}), new int[]{20, 30, -1}},
@@ -184,7 +191,8 @@ public class ArrayArithmeticServiceTest {
     }
 
     @Test(dataProvider = "getFibonacciNumbersNegativeData")
-    public void getFibonacciNumbersNegativeTest(IntegerArray integerArray, int[] expected) {
+    public void getFibonacciNumbersNegativeTest(IntegerArray integerArray,
+                                                int[] expected) {
         try {
             int[] actual = arrayArithmeticService.getFibonacciNumbers(integerArray);
             assertNotEquals(actual, expected);
@@ -200,7 +208,8 @@ public class ArrayArithmeticServiceTest {
     }
 
     @DataProvider(name = "getThreeDigitUniqueNumbersPositiveData")
-    public Object[][] createGetThreeDigitUniqueNumbersPositiveData() throws IncorrectDataException {
+    public Object[][] createGetThreeDigitUniqueNumbersPositiveData()
+            throws IncorrectDataException {
         return new Object[][]{
                 {new IntegerArray(new int[]{222, 123, -321}), new int[]{123, -321}},
                 {new IntegerArray(new int[]{103, 99, 3}), new int[]{103}},
@@ -209,7 +218,8 @@ public class ArrayArithmeticServiceTest {
     }
 
     @Test(dataProvider = "getThreeDigitUniqueNumbersPositiveData")
-    public void getThreeDigitUniqueNumbersPositiveTest(IntegerArray integerArray, int[] expected) {
+    public void getThreeDigitUniqueNumbersPositiveTest(IntegerArray integerArray,
+                                                       int[] expected) {
         try {
             int[] actual = arrayArithmeticService.getThreeDigitUniqueNumbers(integerArray);
             assertEquals(actual, expected);
@@ -219,7 +229,8 @@ public class ArrayArithmeticServiceTest {
     }
 
     @DataProvider(name = "getThreeDigitUniqueNumbersNegativeData")
-    public Object[][] createGetThreeDigitUniqueNumbersNegativeData() throws IncorrectDataException {
+    public Object[][] createGetThreeDigitUniqueNumbersNegativeData()
+            throws IncorrectDataException {
         return new Object[][]{
                 {new IntegerArray(new int[]{222, 123, -321}), new int[]{222}},
                 {new IntegerArray(new int[]{103, 99, 3}), new int[]{}},
@@ -228,7 +239,8 @@ public class ArrayArithmeticServiceTest {
     }
 
     @Test(dataProvider = "getThreeDigitUniqueNumbersNegativeData")
-    public void getThreeDigitUniqueNumbersNegativeTest(IntegerArray integerArray, int[] expected) {
+    public void getThreeDigitUniqueNumbersNegativeTest(IntegerArray integerArray,
+                                                       int[] expected) {
         try {
             int[] actual = arrayArithmeticService.getThreeDigitUniqueNumbers(integerArray);
             assertNotEquals(actual, expected);
@@ -238,7 +250,8 @@ public class ArrayArithmeticServiceTest {
     }
 
     @Test(expectedExceptions = IncorrectDataException.class)
-    public void getThreeDigitUniqueNumbersExceptionTest() throws IncorrectDataException {
+    public void getThreeDigitUniqueNumbersExceptionTest()
+            throws IncorrectDataException {
         IntegerArray integerArray = null;
         arrayArithmeticService.getThreeDigitUniqueNumbers(integerArray);
     }

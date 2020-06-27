@@ -68,10 +68,12 @@ public class ArraySortService {
     private void swap(IntegerArray integerArray, int firstIndex,
                       int secondIndex) throws IncorrectDataException {
         ArrayValidator arrayValidator = new ArrayValidator();
-        if (integerArray == null
-                || !(arrayValidator.isIndexCorrect(firstIndex, integerArray.size()))
-                || !(arrayValidator.isIndexCorrect(secondIndex, integerArray.size()))) {
+        if (integerArray == null) {
             throw new IncorrectDataException();
+        }
+        if (!(arrayValidator.isIndexCorrect(firstIndex, integerArray.size()))
+                || !(arrayValidator.isIndexCorrect(secondIndex, integerArray.size()))) {
+            throw new IncorrectDataException("incorrect array index");
         }
         int firstNumber = integerArray.get(firstIndex);
         int secondNumber = integerArray.get(secondIndex);

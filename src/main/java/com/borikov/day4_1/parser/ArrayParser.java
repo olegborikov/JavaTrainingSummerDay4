@@ -3,21 +3,24 @@ package com.borikov.day4_1.parser;
 import com.borikov.day4_1.exception.IncorrectDataException;
 
 public class ArrayParser {
+    private static final String REGEX_TRIM = "\\s";
+    private static final String REGEX_REPLACE = "[\\s]{2,}";
+    private static final String REGEX_REPLACEMENT = " ";
 
     public int[] parseLineToArray(String data) throws IncorrectDataException {
         if (data == null || data.equals("")) {
             throw new IncorrectDataException();
         }
         try {
-            data = data.replaceAll("[\\s]{2,}", " ");
-            String[] a = data.trim().split("\\s");
+            data = data.replaceAll(REGEX_REPLACE, REGEX_REPLACEMENT);
+            String[] a = data.trim().split(REGEX_TRIM);
             int[] numbers = new int[a.length];
             for (int i = 0; i < a.length; i++) {
                 numbers[i] = Integer.parseInt(a[i]);
             }
             return numbers;
         } catch (NumberFormatException e) {
-            throw new IncorrectDataException();
+            throw new IncorrectDataException("incorrect number format");
         }
     }
 

@@ -71,7 +71,8 @@ public class ArrayParserTest {
 
     @Test(dataProvider = "parseLineToArrayExceptionData",
             expectedExceptions = IncorrectDataException.class)
-    public void parseLineToArrayExceptionTest(String data) throws IncorrectDataException {
+    public void parseLineToArrayExceptionTest(String data)
+            throws IncorrectDataException {
         arrayParser.parseLineToArray(data);
     }
 

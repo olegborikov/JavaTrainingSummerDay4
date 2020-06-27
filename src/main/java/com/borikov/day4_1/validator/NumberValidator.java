@@ -3,8 +3,8 @@ package com.borikov.day4_1.validator;
 import com.borikov.day4_1.parser.ArrayParser;
 
 public class NumberValidator {
-    public final static int MIN_THREE_DIGIT_NUMBER = 100;
-    public final static int MAX_THREE_DIGIT_NUMBER = 999;
+    public static final int MIN_THREE_DIGIT_NUMBER = 100;
+    public static final int MAX_THREE_DIGIT_NUMBER = 999;
 
     public boolean isNumberPrime(int number) {
         boolean result = true;
@@ -14,6 +14,7 @@ public class NumberValidator {
             for (int i = 2; i < number; i++) {
                 if (number % i == 0) {
                     result = false;
+                    break;
                 }
             }
         }

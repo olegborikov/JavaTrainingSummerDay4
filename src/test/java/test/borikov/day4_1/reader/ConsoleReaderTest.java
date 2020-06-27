@@ -78,7 +78,8 @@ public class ConsoleReaderTest {
 
     @Test(dataProvider = "readArraySizeExceptionData",
             expectedExceptions = IncorrectDataException.class)
-    public void readArraySizeExceptionTest(String data) throws IncorrectDataException {
+    public void readArraySizeExceptionTest(String data)
+            throws IncorrectDataException {
         InputStream actual = new ByteArrayInputStream(data.getBytes());
         consoleReader.readArraySize(actual);
     }
@@ -135,7 +136,8 @@ public class ConsoleReaderTest {
 
     @Test(dataProvider = "readArrayElementExceptionData",
             expectedExceptions = IncorrectDataException.class)
-    public void readArrayElementExceptionTest(int index, String data) throws IncorrectDataException {
+    public void readArrayElementExceptionTest(int index, String data)
+            throws IncorrectDataException {
         InputStream actual = new ByteArrayInputStream(data.getBytes());
         consoleReader.readArrayElement(index, actual);
     }

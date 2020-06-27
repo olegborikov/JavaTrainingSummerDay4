@@ -8,7 +8,7 @@ public class IntegerArray {
 
     public IntegerArray(int[] numbers) throws IncorrectDataException {
         if (numbers == null || numbers.length < 1) {
-            throw new IncorrectDataException();
+            throw new IncorrectDataException("incorrect array");
         }
         this.numbers = numbers;
     }
@@ -16,7 +16,7 @@ public class IntegerArray {
     public int get(int index) throws IncorrectDataException {
         ArrayValidator arrayValidator = new ArrayValidator();
         if (!(arrayValidator.isIndexCorrect(index, numbers.length))) {
-            throw new IncorrectDataException();
+            throw new IncorrectDataException("incorrect array index");
         }
         return numbers[index];
     }
@@ -24,7 +24,7 @@ public class IntegerArray {
     public void set(int index, int value) throws IncorrectDataException {
         ArrayValidator arrayValidator = new ArrayValidator();
         if (!(arrayValidator.isIndexCorrect(index, numbers.length))) {
-            throw new IncorrectDataException();
+            throw new IncorrectDataException("incorrect array index");
         }
         numbers[index] = value;
     }
@@ -70,8 +70,8 @@ public class IntegerArray {
     @Override
     public int hashCode() {
         int result = 1;
-        for (int i = 0; i < numbers.length; i++) {
-            result = 31 * numbers[i] + result;
+        for (int number : numbers) {
+            result = 31 * number + result;
         }
         return result;
     }

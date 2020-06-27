@@ -48,7 +48,8 @@ public class ArraySortServiceTest {
     }
 
     @Test(dataProvider = "sortPositiveData")
-    public void bubbleSortPositiveTest(IntegerArray actual, boolean isReverse, IntegerArray expected) {
+    public void bubbleSortPositiveTest(IntegerArray actual,
+                                       boolean isReverse, IntegerArray expected) {
         try {
             arraySortService.bubbleSort(actual, isReverse);
             assertEquals(actual, expected);
@@ -58,7 +59,8 @@ public class ArraySortServiceTest {
     }
 
     @Test(dataProvider = "sortNegativeData")
-    public void bubbleSortNegativeTest(IntegerArray actual, boolean isReverse, IntegerArray expected) {
+    public void bubbleSortNegativeTest(IntegerArray actual,
+                                       boolean isReverse, IntegerArray expected) {
         try {
             arraySortService.bubbleSort(actual, isReverse);
             assertNotEquals(actual, expected);
@@ -75,7 +77,8 @@ public class ArraySortServiceTest {
     }
 
     @Test(dataProvider = "sortPositiveData")
-    public void selectionSortPositiveTest(IntegerArray actual, boolean isReverse, IntegerArray expected) {
+    public void selectionSortPositiveTest(IntegerArray actual,
+                                          boolean isReverse, IntegerArray expected) {
         try {
             arraySortService.selectionSort(actual, isReverse);
             assertEquals(actual, expected);
@@ -85,7 +88,8 @@ public class ArraySortServiceTest {
     }
 
     @Test(dataProvider = "sortNegativeData")
-    public void selectionSortNegativeTest(IntegerArray actual, boolean isReverse, IntegerArray expected) {
+    public void selectionSortNegativeTest(IntegerArray actual,
+                                          boolean isReverse, IntegerArray expected) {
         try {
             arraySortService.selectionSort(actual, isReverse);
             assertNotEquals(actual, expected);
@@ -102,7 +106,8 @@ public class ArraySortServiceTest {
     }
 
     @Test(dataProvider = "sortPositiveData")
-    public void insertionSortPositiveTest(IntegerArray actual, boolean isReverse, IntegerArray expected) {
+    public void insertionSortPositiveTest(IntegerArray actual,
+                                          boolean isReverse, IntegerArray expected) {
         try {
             arraySortService.insertionSort(actual, isReverse);
             assertEquals(actual, expected);
@@ -112,7 +117,8 @@ public class ArraySortServiceTest {
     }
 
     @Test(dataProvider = "sortNegativeData")
-    public void insertionSortNegativeTest(IntegerArray actual, boolean isReverse, IntegerArray expected) {
+    public void insertionSortNegativeTest(IntegerArray actual,
+                                          boolean isReverse, IntegerArray expected) {
         try {
             arraySortService.insertionSort(actual, isReverse);
             assertNotEquals(actual, expected);

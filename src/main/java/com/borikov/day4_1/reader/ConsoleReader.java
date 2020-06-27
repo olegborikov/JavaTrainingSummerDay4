@@ -15,15 +15,16 @@ public class ConsoleReader {
             arrayPrint.printEnterSize();
             int size = scanner.nextInt();
             if (size < 1) {
-                throw new IncorrectDataException();
+                throw new IncorrectDataException("incorrect array size");
             }
             return new int[size];
         } catch (InputMismatchException e) {
-            throw new IncorrectDataException();
+            throw new IncorrectDataException("incorrect input");
         }
     }
 
-    public int readArrayElement(int index, InputStream in) throws IncorrectDataException {
+    public int readArrayElement(int index, InputStream in)
+            throws IncorrectDataException {
         Scanner scanner = new Scanner(in);
         ArrayPrint arrayPrint = new ArrayPrint();
         arrayPrint.printEnterElement(index);
@@ -31,7 +32,7 @@ public class ConsoleReader {
             int element = scanner.nextInt();
             return element;
         } catch (InputMismatchException e) {
-            throw new IncorrectDataException();
+            throw new IncorrectDataException("incorrect input");
         }
     }
 }

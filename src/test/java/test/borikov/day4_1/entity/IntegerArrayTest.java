@@ -8,7 +8,6 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
 public class IntegerArrayTest {
-
     @DataProvider(name = "getPositiveData")
     public Object[][] createGetPositiveData() throws IncorrectDataException {
         return new Object[][]{
@@ -58,7 +57,8 @@ public class IntegerArrayTest {
 
     @Test(dataProvider = "getExceptionData",
             expectedExceptions = IncorrectDataException.class)
-    public void getExceptionTest(IntegerArray integerArray, int index) throws IncorrectDataException {
+    public void getExceptionTest(IntegerArray integerArray,
+                                 int index) throws IncorrectDataException {
         integerArray.get(index);
     }
 
@@ -75,7 +75,8 @@ public class IntegerArrayTest {
     }
 
     @Test(dataProvider = "setPositiveData")
-    public void setPositiveTest(IntegerArray actual, int index, int value, IntegerArray expected) {
+    public void setPositiveTest(IntegerArray actual,
+                                int index, int value, IntegerArray expected) {
         try {
             actual.set(index, value);
             assertEquals(actual, expected);
@@ -97,7 +98,8 @@ public class IntegerArrayTest {
     }
 
     @Test(dataProvider = "setNegativeData")
-    public void setNegativeTest(IntegerArray actual, int index, int value, IntegerArray expected) {
+    public void setNegativeTest(IntegerArray actual, int index,
+                                int value, IntegerArray expected) {
         try {
             actual.set(index, value);
             assertNotEquals(actual, expected);
@@ -118,7 +120,8 @@ public class IntegerArrayTest {
 
     @Test(dataProvider = "setExceptionData",
             expectedExceptions = IncorrectDataException.class)
-    public void setExceptionTest(IntegerArray actual, int index, int value) throws IncorrectDataException {
+    public void setExceptionTest(IntegerArray actual,
+                                 int index, int value) throws IncorrectDataException {
         actual.set(index, value);
     }
 

@@ -19,7 +19,7 @@ public class ArrayCreator {
     public IntegerArray createAndFillArrayRandom(int size)
             throws IncorrectDataException {
         if (size < 1) {
-            throw new IncorrectDataException();
+            throw new IncorrectDataException("incorrect array size");
         }
         Random random = new Random();
         int[] numbers = new int[size];
@@ -36,7 +36,7 @@ public class ArrayCreator {
         int[] numbers = consoleReader.readArraySize(size);
         InputStream element;
         for (int i = 0; i < numbers.length; i++) {
-            element =  new ByteArrayInputStream(elementData[i].getBytes());
+            element = new ByteArrayInputStream(elementData[i].getBytes());
             numbers[i] = consoleReader.readArrayElement(i, element);
         }
         return new IntegerArray(numbers);

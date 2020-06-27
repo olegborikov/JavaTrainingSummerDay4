@@ -119,8 +119,7 @@ public class NumberValidatorTest {
                 {0}
         };
     }
-
-
+    
     @Test(dataProvider = "isNumberUniquePositiveData")
     public void isNumberUniquePositiveTest(int number) {
         boolean actual = numberValidator.isNumberUnique(number);
