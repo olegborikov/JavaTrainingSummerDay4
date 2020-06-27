@@ -8,7 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class CustomFileReader {
-    private static final String DEFAULT_PATH = "src\\main\\resources\\data\\data.txt";
+    private static final String DEFAULT_PATH = "data/data.txt";
 
     public String readArray(String file) throws IncorrectDataException {
         Path path = Paths.get(DEFAULT_PATH);
@@ -20,8 +20,9 @@ public class CustomFileReader {
         }
         try {
             String data = Files.readAllLines(path).get(0);
+            System.out.println("123");
             return data;
-        } catch (IOException e) {
+        } catch (IOException | IndexOutOfBoundsException e) {
             throw new IncorrectDataException();
         }
     }

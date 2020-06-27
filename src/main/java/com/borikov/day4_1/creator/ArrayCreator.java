@@ -6,11 +6,15 @@ import com.borikov.day4_1.parser.ArrayParser;
 import com.borikov.day4_1.reader.ConsoleReader;
 import com.borikov.day4_1.reader.CustomFileReader;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.Random;
 
 public class ArrayCreator {
     private static final int MAX_RANDOM = 1000;
     private static final int MIN_RANDOM = -1000;
+    private static final String sizeData = "10";
+    private static final String[] elementData = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 
     public IntegerArray createAndFillArrayRandom(int size)
             throws IncorrectDataException {
@@ -28,9 +32,12 @@ public class ArrayCreator {
     public IntegerArray createAndFillArrayConsole()
             throws IncorrectDataException {
         ConsoleReader consoleReader = new ConsoleReader();
-        int[] numbers = consoleReader.readArraySize();
+        InputStream size = new ByteArrayInputStream(sizeData.getBytes());
+        int[] numbers = consoleReader.readArraySize(size);
+        InputStream element;
         for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = consoleReader.readArrayElement(i);
+            element =  new ByteArrayInputStream(elementData[i].getBytes());
+            numbers[i] = consoleReader.readArrayElement(i, element);
         }
         return new IntegerArray(numbers);
     }
